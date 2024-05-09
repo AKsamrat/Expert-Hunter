@@ -1,19 +1,20 @@
 import { useContext, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
-import loginImg from '../assets/regis.webp';
+import regImg from '../assets/register.jpg';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../Provider/AuthProvider';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { getAuth, updateProfile } from 'firebase/auth';
 import { toast } from 'react-toastify';
-import app from '../Firebase/FIrebase.config';
+import app from '../Firebase/Firebase.config';
+
 const auth = getAuth(app);
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [showPassword, setPassword] = useState(false);
   const [registerError, setRegisterError] = useState('');
-  const [success, setSuccess] = useState('');
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state ? location.state : '/';
@@ -36,7 +37,7 @@ const Register = () => {
       return;
     }
     setRegisterError('');
-    setSuccess('');
+
     createUser(email, password)
       .then(result => {
         updateProfile(auth.currentUser, {
@@ -61,8 +62,10 @@ const Register = () => {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Register Now!</h1>
-            <img src={loginImg} alt="" />
+            <h1 className="text-5xl font-bold mb-3 text-center">
+              Register Now!
+            </h1>
+            <img className="h-[75vh]" src={regImg} alt="" />
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
