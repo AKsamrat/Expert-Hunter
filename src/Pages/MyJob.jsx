@@ -16,7 +16,7 @@ const MyJob = () => {
   const {
     data: jobs = [],
     refetch,
-
+    isLoading,
     error,
   } = useQuery({
     queryFn: async () => {
@@ -26,6 +26,7 @@ const MyJob = () => {
     },
     queryKey: ['jobs', user?.email],
   });
+  console.log(jobs);
 
   if (!error) {
     toast.success('Data loaded Succesfully');
@@ -88,20 +89,20 @@ const MyJob = () => {
             </tr>
           </thead>
           <tbody>
-            {jobs.map(job => (
-              <tr key={job._id}>
-                <td>{job.job_title}</td>
-                <td>{job.image}</td>
-                <td>{job.name}</td>
-                <td>{job.owner_email}</td>
-                <td>{job.category}</td>
+            {jobs?.map(job => (
+              <tr key={job?._id}>
+                <td>{job?.job_title}</td>
+                <td>{job?.image}</td>
+                <td>{job?.name}</td>
+                <td>{job?.owner_email}</td>
+                <td>{job?.category}</td>
                 <td>
-                  {job.min_salary}-{job.max_salary}
+                  {job?.min_salary}-{job?.max_salary}
                 </td>
-                <td>{job.description}</td>
-                <td>{job.posting_date} </td>
-                <th>{new Date(job.deadline).toLocaleDateString()}</th>
-                <td>{job.applicant_no}</td>
+                <td>{job?.description}</td>
+                <td>{job?.posting_date} </td>
+                <th>{new Date(job?.deadline).toLocaleDateString()}</th>
+                <td>{job?.applicant_no}</td>
                 <td>
                   <div className="flex justify-between items-center">
                     <Link
