@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import { toast } from 'react-toastify';
 
 const JobUpdate = () => {
+  const [postingDate, setPostingDate] = useState(new Date());
   const { user } = useAuth();
   const { id } = useParams();
   const queryClient = useQueryClient();
@@ -75,7 +76,7 @@ const JobUpdate = () => {
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
       <section className=" p-2 md:p-6 mx-auto bg-white rounded-md shadow-md ">
         <h2 className="text-3xl font-bold  capitalize text-center text-[#00C2CB] pb-5 ">
-          Post a Job
+          Update Job
         </h2>
 
         <form onSubmit={handleFormSubmission}>
@@ -195,17 +196,21 @@ const JobUpdate = () => {
               />
             </div>
 
-            <div className="flex flex-col gap-2 ">
+            {/* <div className="flex flex-col gap-2 ">
               <label className="text-gray-700">Posting date</label>
-
+              <input
+                type="number"
+                defaultValue={new Date(jobs?.posting_date).toLocaleDateString()}
+                name="applicant"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+              />
               <DatePicker
-                defaultValue={jobs?.posting_date}
                 className="border p-2 rounded-md"
                 disabled
-                selected={startDate}
-                onChange={date => setStartDate(date)}
+                selected={postingDate}
+                onChange={date => setPostingDate(date)}
               />
-            </div>
+            </div> */}
           </div>
 
           <div className="flex flex-col gap-2 mt-4">

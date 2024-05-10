@@ -15,6 +15,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import MyJob from './Pages/MyJob.jsx';
 import JobUpdate from './Pages/JobUpdate.jsx';
+import AllJobs from './Pages/AllJobs.jsx';
+import JobDetails from './Pages/JobDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,10 +38,22 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
+        path: '/allJobs',
+        element: <AllJobs />,
+      },
+      {
         path: '/addJobs',
         element: (
           <PrivateRoute>
             <AddJob />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/jobDetails/:id',
+        element: (
+          <PrivateRoute>
+            <JobDetails />
           </PrivateRoute>
         ),
       },

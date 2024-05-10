@@ -12,6 +12,7 @@ const AddJob = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
+  const [postingDate, setPostingDate] = useState(new Date());
   const { user } = useContext(AuthContext);
 
   const { mutateAsync } = useMutation({
@@ -182,8 +183,8 @@ const AddJob = () => {
               <DatePicker
                 className="border p-2 rounded-md"
                 disabled
-                selected={startDate}
-                onChange={date => setStartDate(date)}
+                selected={postingDate}
+                onChange={date => setPostingDate(date)}
               />
             </div>
           </div>

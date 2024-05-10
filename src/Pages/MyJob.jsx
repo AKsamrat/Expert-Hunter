@@ -92,7 +92,13 @@ const MyJob = () => {
             {jobs?.map(job => (
               <tr key={job?._id}>
                 <td>{job?.job_title}</td>
-                <td>{job?.image}</td>
+                <td>
+                  <div className="avatar">
+                    <div className="mask mask-squircle w-12 h-12">
+                      <img src={job?.image} alt="" />
+                    </div>
+                  </div>
+                </td>
                 <td>{job?.name}</td>
                 <td>{job?.owner_email}</td>
                 <td>{job?.category}</td>
@@ -100,7 +106,7 @@ const MyJob = () => {
                   {job?.min_salary}-{job?.max_salary}
                 </td>
                 <td>{job?.description}</td>
-                <td>{job?.posting_date} </td>
+                <td>{new Date(job?.posting_date).toLocaleDateString()} </td>
                 <th>{new Date(job?.deadline).toLocaleDateString()}</th>
                 <td>{job?.applicant_no}</td>
                 <td>
@@ -118,7 +124,6 @@ const MyJob = () => {
                         {' '}
                         <FaPencilAlt />
                       </button>
-                      {/* <p>{area}sft</p> */}
                     </Link>
                     <Link
                       className="flex justify-between items-center"

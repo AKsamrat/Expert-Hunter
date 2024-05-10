@@ -102,20 +102,22 @@ const Navbar = () => {
           <span>Blogs</span>
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/userProfile"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? 'pending'
-              : isActive
-              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
-              : 'hover:text-[#00C2CB]'
-          }
-        >
-          <span>User Profile</span>
-        </NavLink>
-      </li>
+      {user?.email && (
+        <li>
+          <NavLink
+            to="/userProfile"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? 'pending'
+                : isActive
+                ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+                : 'hover:text-[#00C2CB]'
+            }
+          >
+            <span>User Profile</span>
+          </NavLink>
+        </li>
+      )}
     </>
   );
 
