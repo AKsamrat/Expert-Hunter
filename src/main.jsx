@@ -10,6 +10,8 @@ import HomePage from './Pages/HomePage.jsx';
 import LoginPage from './Pages/LoginPage.jsx';
 import Register from './Pages/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import AddJob from './Pages/AddJob.jsx';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const router = createBrowserRouter([
   {
@@ -30,12 +32,10 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register />,
       },
-      // {
-      //   path: '/job/:id',
-      //   element: <JobDetails />,
-      //   loader: ({ params }) =>
-      //     fetch(`${import.meta.env.VITE_API_URL}/job/${params.id}`),
-      // },
+      {
+        path: '/addJobs',
+        element: <AddJob />,
+      },
       // {
       //   path: '/allJobs',
       //   element: <ALlJobs />,
@@ -56,13 +56,13 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
+const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      {/* <QueryClientProvider client={queryClient}> */}
-      <RouterProvider router={router} />
-      {/* </QueryClientProvider> */}
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
       <ToastContainer />
     </AuthProvider>
   </React.StrictMode>
