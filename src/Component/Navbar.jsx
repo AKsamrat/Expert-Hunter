@@ -39,20 +39,7 @@ const Navbar = () => {
           <span> All Jobs</span>
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/myPostedJob"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? 'pending'
-              : isActive
-              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
-              : 'hover:text-[#00C2CB]'
-          }
-        >
-          <span>My Posted Job</span>
-        </NavLink>
-      </li>
+
       {user?.email && (
         <li>
           <NavLink
@@ -69,36 +56,38 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
-      <li>
-        <NavLink
-          to="/addJobs"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? 'pending'
-              : isActive
-              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
-              : 'hover:text-[#00C2CB]'
-          }
-        >
-          <span>Add Job</span>
-        </NavLink>
-        {/* <Link to="/myCart">My Added Product</Link> */}
-      </li>
-      <li>
-        <NavLink
-          to="/myJobs"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? 'pending'
-              : isActive
-              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
-              : 'hover:text-[#00C2CB]'
-          }
-        >
-          <span>My jobs</span>
-        </NavLink>
-        {/* <Link to="/myCart">My Added Product</Link> */}
-      </li>
+      {user?.email && (
+        <li>
+          <NavLink
+            to="/addJobs"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? 'pending'
+                : isActive
+                ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+                : 'hover:text-[#00C2CB]'
+            }
+          >
+            <span>Add Job</span>
+          </NavLink>
+        </li>
+      )}
+      {user?.email && (
+        <li>
+          <NavLink
+            to="/myPostedJobs"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? 'pending'
+                : isActive
+                ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+                : 'hover:text-[#00C2CB]'
+            }
+          >
+            <span>My jobs</span>
+          </NavLink>
+        </li>
+      )}
       <li>
         <NavLink
           to="/blogs"

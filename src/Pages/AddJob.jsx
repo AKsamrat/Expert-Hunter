@@ -5,10 +5,12 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import useAxiosSecure from '../Hook/useAxiosSecure';
+import { useNavigate } from 'react-router-dom';
 
 const AddJob = () => {
   const queryClient = useQueryClient();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
 
@@ -18,7 +20,8 @@ const AddJob = () => {
       return data;
     },
     onSuccess: () => {
-      toast.success('Updated');
+      toast.success('Job Added Successfully');
+
       queryClient.invalidateQueries({ queryKey: ['job'] });
     },
   });
@@ -31,7 +34,8 @@ const AddJob = () => {
     const owner_email = user?.email;
     const deadline = startDate;
     const category = form.category.value;
-    const salary = form.salary.value;
+    const min_salary = form.min_salary.value;
+    const max_salary = form.max_salary.value;
     const applicant_no = form.applicant.value;
     const posting_date = startDate;
     const description = form.description.value;
@@ -42,7 +46,8 @@ const AddJob = () => {
       name: user?.displayName,
       deadline,
       category,
-      salary,
+      min_salary,
+      max_salary,
       applicant_no,
       posting_date,
       description,
@@ -50,6 +55,7 @@ const AddJob = () => {
     };
     console.table(jobData);
     await mutateAsync(jobData);
+    navigate('/myPostedJobs');
   };
 
   return (
@@ -137,11 +143,22 @@ const AddJob = () => {
             </div>
             <div>
               <label className="text-gray-700 " htmlFor="min_price">
-                Salary
+                Min Salary
               </label>
               <input
                 id="salary"
-                name="salary"
+                name="min_salary"
+                type="number"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+              />
+            </div>
+            <div>
+              <label className="text-gray-700 " htmlFor="min_price">
+                Max Salary
+              </label>
+              <input
+                id="salary"
+                name="max_salary"
                 type="number"
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />

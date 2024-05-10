@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -12,6 +12,9 @@ import Register from './Pages/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import AddJob from './Pages/AddJob.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import MyJob from './Pages/MyJob.jsx';
+import JobUpdate from './Pages/JobUpdate.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,25 +37,30 @@ const router = createBrowserRouter([
       },
       {
         path: '/addJobs',
-        element: <AddJob />,
+        element: (
+          <PrivateRoute>
+            <AddJob />
+          </PrivateRoute>
+        ),
       },
-      // {
-      //   path: '/allJobs',
-      //   element: <ALlJobs />,
-      // },
-      // {
-      //   path: '/addJob',
-      //   element: <AddJob />,
-      // },
-      // {
-      //   path: '/myPostedJob',
+      {
+        path: '/jobUpdate/:id',
+        element: (
+          <PrivateRoute>
+            <JobUpdate />
+          </PrivateRoute>
+        ),
+      },
 
-      //   element: (
-      //     <PrivateRoute>
-      //       <MyPostedJob />
-      //     </PrivateRoute>
-      //   ),
-      // },
+      {
+        path: '/myPostedJobs',
+
+        element: (
+          <PrivateRoute>
+            <MyJob />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
