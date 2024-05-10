@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-// import logo from '../assets/images/logo.png';
+import logo from '../assets/logo1.jpg';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
@@ -17,8 +17,8 @@ const Navbar = () => {
             isPending
               ? 'pending'
               : isActive
-              ? 'text-[#FF497C] border-b-4 border-[#FF497C]'
-              : 'hover:text-[#FF497C]'
+              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+              : 'hover:text-[#00C2CB]'
           }
         >
           <span>Home</span>
@@ -32,8 +32,8 @@ const Navbar = () => {
             isPending
               ? 'pending'
               : isActive
-              ? 'text-[#FF497C] border-b-4 border-[#FF497C]'
-              : 'hover:text-[#FF497C]'
+              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+              : 'hover:text-[#00C2CB]'
           }
         >
           <span> All Jobs</span>
@@ -46,8 +46,8 @@ const Navbar = () => {
             isPending
               ? 'pending'
               : isActive
-              ? 'text-[#FF497C] border-b-4 border-[#FF497C]'
-              : 'hover:text-[#FF497C]'
+              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+              : 'hover:text-[#00C2CB]'
           }
         >
           <span>My Posted Job</span>
@@ -61,8 +61,8 @@ const Navbar = () => {
               isPending
                 ? 'pending'
                 : isActive
-                ? 'text-[#FF497C] border-b-4 border-[#FF497C]'
-                : 'hover:text-[#FF497C]'
+                ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+                : 'hover:text-[#00C2CB]'
             }
           >
             <span>Aplied Job</span>
@@ -76,8 +76,8 @@ const Navbar = () => {
             isPending
               ? 'pending'
               : isActive
-              ? 'text-[#FF497C] border-b-4 border-[#FF497C]'
-              : 'hover:text-[#FF497C]'
+              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+              : 'hover:text-[#00C2CB]'
           }
         >
           <span>Add Job</span>
@@ -91,8 +91,8 @@ const Navbar = () => {
             isPending
               ? 'pending'
               : isActive
-              ? 'text-[#FF497C] border-b-4 border-[#FF497C]'
-              : 'hover:text-[#FF497C]'
+              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+              : 'hover:text-[#00C2CB]'
           }
         >
           <span>My jobs</span>
@@ -106,8 +106,8 @@ const Navbar = () => {
             isPending
               ? 'pending'
               : isActive
-              ? 'text-[#FF497C] border-b-4 border-[#FF497C]'
-              : 'hover:text-[#FF497C]'
+              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+              : 'hover:text-[#00C2CB]'
           }
         >
           <span>Blogs</span>
@@ -120,8 +120,8 @@ const Navbar = () => {
             isPending
               ? 'pending'
               : isActive
-              ? 'text-[#FF497C] border-b-4 border-[#FF497C]'
-              : 'hover:text-[#FF497C]'
+              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+              : 'hover:text-[#00C2CB]'
           }
         >
           <span>User Profile</span>
@@ -132,7 +132,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="max-w-[1920px] mx-auto mt-5 ">
+      <div className="max-w-7xl mx-auto mt-5 px-4 ">
         <header className="bg-white shadow-lg  flex justify-between items-center w-full dark:bg-[#120505]  ">
           <div>
             {/* <div className="dropdown z-10">
@@ -168,15 +168,16 @@ const Navbar = () => {
               className=" flex flex-shrink-0 items-center gap-2  md:w-[180px] w-[150px] "
             >
               <img
-                className=" md:w-[40px] w-full lg:h-[30px] h-[40px]  "
-                // src={logo}
+                className=" md:w-[280px] w-full lg:h-[65px] h-[60px]  "
+                src={logo}
                 alt=""
               />
-              <span className="font-bold ">SoloSphere</span>
             </Link>
           </div>
           {/* middle */}
-          <ul className="flex justify-center items-center gap-6">{Navitems}</ul>
+          <ul className="flex justify-center items-center gap-6 hidden lg:flex">
+            {Navitems}
+          </ul>
           {/* End */}
 
           {user ? (
@@ -222,7 +223,7 @@ const Navbar = () => {
                 <Link
                   to={'/login'}
                   onClick=""
-                  className="btn bg-[#FF3811] text-white"
+                  className="btn bg-[#00C2CB] text-white"
                 >
                   LogIn
                 </Link>

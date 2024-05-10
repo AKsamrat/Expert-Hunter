@@ -1,34 +1,40 @@
-import React from 'react';
+import logo from '../assets/logo1.jpg';
 
 const Footer = () => {
   return (
     <div>
-      <footer className="px-4 divide-y dark:bg-gray-100 dark:text-gray-800">
-        <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
-          <div className="lg:w-1/3">
+      <footer className="px-4 divide-y  dark:bg-gray-100 dark:text-gray-800">
+        <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0 lg:pl-28">
+          <div className="lg:w-1/4">
             <a
               rel="noopener noreferrer"
               href="#"
-              className="flex justify-center space-x-3 lg:justify-start"
+              className="flex justify-center space-x-3 lg:justify-start w-2/4"
             >
-              <div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 32 32"
-                  fill="currentColor"
-                  className="flex-shrink-0 w-5 h-5 rounded-full dark:text-gray-50"
-                >
-                  <path d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z"></path>
-                </svg>
-              </div>
-              <span className="self-center text-2xl font-semibold">
-                Brand name
-              </span>
+              <img src={logo} alt="" />
             </a>
+            <p>
+              <span className="text-xs uppercase tracking-wide text-gray-500">
+                {' '}
+                Call us{' '}
+              </span>
+
+              <a
+                href="#"
+                className="block text-lg font-medium text-gray-900 hover:opacity-75 sm:text-xl font-sans"
+              >
+                +880-1683654865
+              </a>
+            </p>
+
+            <ul className="mt-2 space-y-1 text-sm text-gray-700 font-sans">
+              <li>Monday to Friday: 10am - 5pm</li>
+              <li>Weekend: 10am - 3pm</li>
+            </ul>
           </div>
           <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
             <div className="space-y-3">
-              <h3 className="tracking-wide uppercase dark:text-gray-900">
+              <h3 className="tracking-wide uppercase dark:text-gray-900 text-[#00C2CB]">
                 Product
               </h3>
               <ul className="space-y-1">
@@ -55,7 +61,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="space-y-3">
-              <h3 className="tracking-wide uppercase dark:text-gray-900">
+              <h3 className="tracking-wide uppercase dark:text-gray-900 text-[#00C2CB]">
                 Company
               </h3>
               <ul className="space-y-1">
@@ -72,7 +78,9 @@ const Footer = () => {
               </ul>
             </div>
             <div className="space-y-3">
-              <h3 className="uppercase dark:text-gray-900">Developers</h3>
+              <h3 className="uppercase dark:text-gray-900 text-[#00C2CB]">
+                Developers
+              </h3>
               <ul className="space-y-1">
                 <li>
                   <a rel="noopener noreferrer" href="#">
@@ -92,8 +100,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="space-y-3">
-              <div className="uppercase dark:text-gray-900">Social media</div>
-              <div className="flex justify-start space-x-3">
+              <div className="uppercase dark:text-gray-900 text-[#00C2CB]"></div>
+              <div className="flex justify-start space-x-3 text-[#00C2CB]">
                 <a
                   rel="noopener noreferrer"
                   href="#"
@@ -143,7 +151,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="py-6 text-sm text-center dark:text-gray-600">
-          © 1968 Company Co. All rights reserved.
+          © 2024 Company Co. All rights reserved.
         </div>
       </footer>
     </div>

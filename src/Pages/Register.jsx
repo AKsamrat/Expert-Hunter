@@ -136,7 +136,7 @@ const Register = () => {
               )}
               <div className="form-control mt-4">
                 <input
-                  className="btn bg-[#FF3811] text-white"
+                  className="btn bg-[#00C2CB] text-white"
                   type="submit"
                   value="Register"
                 ></input>
@@ -149,7 +149,7 @@ const Register = () => {
                 to={'/login'}
                 rel="noopener noreferrer"
                 href="#"
-                className="underline dark:text-gray-800 text-[#FF3811] font-bold"
+                className="underline dark:text-gray-800 text-[#00C2CB] font-bold"
               >
                 Sign In
               </Link>
