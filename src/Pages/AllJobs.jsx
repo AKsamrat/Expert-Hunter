@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useAxiosSecure from '../Hook/useAxiosSecure';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { FaPencilAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AllJobs = () => {
+  const [search, setSearch] = useState('');
+  const [searchText, setSearchText] = useState('');
   const axiosSecure = useAxiosSecure();
+  const queryClient = useQueryClient();
+
+  // const { mutateAsync } = useMutation({
+  //   mutationFn: async search => {
+  //     const { data } = await axiosSecure.put('/updateJob', search);
+  //     console.log(data);
+  //     return data;
+  //   },
+  //   onSuccess: () => {
+  //     toast.success('Job Added Successfully');
+
+  //     queryClient.invalidateQueries({ queryKey: ['job'] });
+  //   },
+  // });
   const {
     data: jobs = [],
     refetch,
@@ -13,19 +30,52 @@ const AllJobs = () => {
     error,
   } = useQuery({
     queryFn: async () => {
-      const { data } = await axiosSecure('/allJobs');
+      const { data } = await axiosSecure(`/allJobs?search=${search}`);
       // console.log(data);
       return data;
     },
     queryKey: ['jobs'],
   });
+  const handleSearch = e => {
+    e.preventDefault();
+
+    setSearch(searchText);
+    // mutateAsync(search);
+  };
+  const handleReset = () => {
+    setSearch('');
+    setSearchText('');
+  };
   // console.log(jobs);
   return (
     <div className="overflow-x-auto max-w-7xl mx-auto my-16">
+      <div className="flex justify-center items-center gap-4 my-6">
+        <form onSubmit={handleSearch}>
+          <div className=" p-1 overflow-hidden      focus-within:border-blue-400 ">
+            <input
+              className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent border rounded-lg"
+              type="text"
+              onChange={e => setSearchText(e.target.value)}
+              value={searchText}
+              name="search"
+              placeholder="Enter Job Title"
+              aria-label="Enter Job Title"
+            />
+
+            <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-[#00C2CB] rounded-md hover:bg-gray-600 focus:bg-[#3facb2] focus:outline-none">
+              Search
+            </button>
+          </div>
+        </form>
+        <button onClick={handleReset} className="btn bg-[#00C2CB] text-white">
+          Reset
+        </button>
+      </div>
+
       <table className="table">
         {/* head */}
         <thead>
-          <tr>
+          <tr className="*:text-lg lg:*:text-xl">
             <th>Job Title</th>
             <th>Job Posting Date</th>
             <th>Application Deadline</th>
@@ -35,7 +85,7 @@ const AllJobs = () => {
         <tbody>
           {jobs?.map(job => (
             <tr key={job._id} className="hover">
-              <th>{job?.job_title}</th>
+              <td>{job?.job_title}</td>
               <td>{new Date(job?.posting_date).toLocaleDateString()}</td>
               <td>{new Date(job?.deadline).toLocaleDateString()}</td>
               <td>

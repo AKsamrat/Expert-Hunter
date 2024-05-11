@@ -21,7 +21,7 @@ const JobDetails = () => {
       return data;
     },
     onSuccess: () => {
-      toast.success('Job Added Successfully');
+      toast.success('Job applied Successfully');
 
       queryClient.invalidateQueries({ queryKey: ['job'] });
     },
@@ -29,7 +29,7 @@ const JobDetails = () => {
   const {
     data: jobs = [],
     refetch,
-
+    isError,
     error,
   } = useQuery({
     queryFn: async () => {
@@ -64,8 +64,17 @@ const JobDetails = () => {
       category,
     };
     // console.table();
+    const todayDate = Date.now();
+    const deadline = new Date(jobs?.deadline).toLocaleDateString();
+    const lastdate = Date.parse(deadline);
+    console.log(todayDate);
+    console.log(lastdate);
+    if (lastdate < todayDate) return alert('deadline is over');
     await mutateAsync(applicantData);
+    form.reset();
   };
+
+  if (isError) return alert.error(error.message);
   return (
     <div className="my-14 max-w-7xl mx-auto mt-5 px-4 ">
       {/* Job Details */}
