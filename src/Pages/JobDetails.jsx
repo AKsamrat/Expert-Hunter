@@ -74,7 +74,7 @@ const JobDetails = () => {
     form.reset();
   };
 
-  if (isError) return alert.error(error.message);
+  if (isError) return alert(error.message);
   return (
     <div className="my-14 max-w-7xl mx-auto mt-5 px-4 ">
       {/* Job Details */}

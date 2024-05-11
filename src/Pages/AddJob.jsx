@@ -49,7 +49,7 @@ const AddJob = () => {
       category,
       min_salary,
       max_salary,
-      applicant_no,
+      applicant_no: 0,
       posting_date,
       description,
       owner_email,
@@ -60,7 +60,7 @@ const AddJob = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
+    <div className="max-w-5xl mx-auto mt-5 px-4  min-h-[calc(100vh-306px)] my-12">
       <section className=" p-2 md:p-6 mx-auto bg-white rounded-md shadow-md ">
         <h2 className="text-3xl font-bold  capitalize text-center text-[#00C2CB] pb-5 ">
           Post a Job

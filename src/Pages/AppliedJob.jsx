@@ -26,6 +26,9 @@ const AppliedJob = () => {
   });
   return (
     <div className="max-w-7xl mx-auto mt-5 px-4">
+      <h2 className="mb-4 text-3xl font-bold leading-tight text-center text-[#00C2CB] py-8">
+        APPLIED JOBS
+      </h2>
       <div className="flex justify-center items-center">
         <select
           onChange={e => {
@@ -46,9 +49,6 @@ const AppliedJob = () => {
         </select>
       </div>
       <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
-        <h2 className="mb-4 text-3xl font-bold leading-tight text-center text-[#00C2CB] py-8">
-          APPLIED JOBS
-        </h2>
         <div className="overflow-x-auto">
           <table className="min-w-full text-xs">
             <colgroup>

@@ -39,6 +39,12 @@ const AllJobs = () => {
   // console.log(jobs);
   return (
     <div className="overflow-x-auto max-w-7xl mx-auto my-16">
+      <p className="text-3xl font-bold text-[#00C2CB] text-center pb-2">
+        ALL Jobs
+      </p>
+      <p className="text-center pb-8">
+        Please Find your Prefarable and suitable job Here also try to apply{' '}
+      </p>
       <div className="flex justify-center items-center gap-4 my-6">
         <form onSubmit={handleSearch}>
           <div className=" p-1 overflow-hidden      focus-within:border-blue-400 ">
