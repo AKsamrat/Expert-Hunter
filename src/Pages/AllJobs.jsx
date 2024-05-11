@@ -11,18 +11,6 @@ const AllJobs = () => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
 
-  // const { mutateAsync } = useMutation({
-  //   mutationFn: async search => {
-  //     const { data } = await axiosSecure.put('/updateJob', search);
-  //     console.log(data);
-  //     return data;
-  //   },
-  //   onSuccess: () => {
-  //     toast.success('Job Added Successfully');
-
-  //     queryClient.invalidateQueries({ queryKey: ['job'] });
-  //   },
-  // });
   const {
     data: jobs = [],
     refetch,
@@ -32,14 +20,16 @@ const AllJobs = () => {
     queryFn: async () => {
       const { data } = await axiosSecure(`/allJobs?search=${search}`);
       // console.log(data);
+      // refetch();
       return data;
     },
-    queryKey: ['jobs'],
+    queryKey: ['jobs', search],
   });
   const handleSearch = e => {
     e.preventDefault();
 
     setSearch(searchText);
+    refetch();
     // mutateAsync(search);
   };
   const handleReset = () => {
@@ -62,7 +52,10 @@ const AllJobs = () => {
               aria-label="Enter Job Title"
             />
 
-            <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-[#00C2CB] rounded-md hover:bg-gray-600 focus:bg-[#3facb2] focus:outline-none">
+            <button
+              type="submit"
+              className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-[#00C2CB] rounded-md hover:bg-gray-600 focus:bg-[#3facb2] focus:outline-none"
+            >
               Search
             </button>
           </div>

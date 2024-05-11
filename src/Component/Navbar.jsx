@@ -43,7 +43,7 @@ const Navbar = () => {
       {user?.email && (
         <li>
           <NavLink
-            to="/apliedJob"
+            to="/appliedJob"
             className={({ isActive, isPending }) =>
               isPending
                 ? 'pending'
