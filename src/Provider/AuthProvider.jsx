@@ -12,6 +12,7 @@ import {
 } from 'firebase/auth';
 
 import app from '../Firebase/Firebase.config';
+import axios from 'axios';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -73,10 +74,25 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
+      const loggedUser = { email: currentUser?.email };
       if (currentUser) {
         setUser(currentUser);
         setLoading(false);
+        axios
+          .post(`${import.meta.env.VITE_API_URL}/jwt`, loggedUser, {
+            withCredentials: true,
+          })
+          .then(res => {
+            console.log('tocken Response', res.data);
+          });
       } else {
+        axios
+          .post(`${import.meta.env.VITE_API_URL}/logout`, loggedUser, {
+            withCredentials: true,
+          })
+          .then(res => {
+            console.log(res.data);
+          });
         setUser(null);
 
         setLoading(false);

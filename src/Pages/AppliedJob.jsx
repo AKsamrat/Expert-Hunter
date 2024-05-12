@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import useAxiosSecure from '../Hook/useAxiosSecure';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import useAuth from '../Hook/useAuth';
+import { usePDF } from 'react-to-pdf';
+import generatePDF, { Resolution, Margin } from 'react-to-pdf';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+
+//for pdf=========================
 
 const AppliedJob = () => {
+  const targetRef = useRef();
+  const { toPDF } = usePDF({ filename: 'page.pdf' });
   const { user } = useAuth();
   const [filter, setFilter] = useState('');
   const axiosSecure = useAxiosSecure();
@@ -24,6 +32,30 @@ const AppliedJob = () => {
     },
     queryKey: ['jobs', filter],
   });
+  // const downloadPdf = () => {
+  //   const input = targetRef.current;
+  //   html2canvas(input).then(canvas => {
+  //     const imgData = canvas.toDataURL('image/png');
+  //     const pdf = new jsPDF('p', 'mm', '04', true);
+  //     const pdfWidth = pdf.internal.pageSize.getWidth();
+  //     const pdfHeight = pdf.internal.pageSize.getHeight();
+  //     const imgWidth = canvas.width();
+  //     const imgHeight = canvas.height();
+  //     const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+  //     const imgX = pdfWidth - imgWidth * ratio;
+  //     const imgY = 30;
+  //     pdf.addImage(
+  //       imgData,
+  //       'PNG',
+  //       imgX,
+  //       imgY,
+  //       imgHeight * ratio,
+  //       imgWidth * ratio
+  //     );
+  //     pdf.save('resume.pdf');
+  //   });
+  // };
+
   return (
     <div className="max-w-7xl mx-auto mt-5 px-4">
       <h2 className="mb-4 text-3xl font-bold leading-tight text-center text-[#00C2CB] py-8">
@@ -48,7 +80,11 @@ const AppliedJob = () => {
           <option value="Hybrid">Hybrid</option>
         </select>
       </div>
-      <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
+      {/* <button onClick={downloadPdf}>Download PDF</button> */}
+      <div
+        ref={targetRef}
+        className="container p-2 mx-auto sm:p-4 dark:text-gray-800"
+      >
         <div className="overflow-x-auto">
           <table className="min-w-full text-xs">
             <colgroup>

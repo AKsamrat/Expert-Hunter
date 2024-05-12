@@ -14,14 +14,14 @@ const Footer = () => {
               <img src={logo} alt="" />
             </a>
             <p>
-              <span className="text-xs uppercase tracking-wide text-gray-500 text-gray-200">
+              <span className="text-xs uppercase tracking-wide dark:text-gray-500 text-gray-200">
                 {' '}
                 Call us{' '}
               </span>
 
               <a
                 href="#"
-                className="block text-lg font-medium text-gray-900 hover:opacity-75 sm:text-xl font-sans"
+                className="block text-lg font-medium text-gray-100 dark:text-gray-900 hover:opacity-75 sm:text-xl font-sans"
               >
                 +880-1683654865
               </a>

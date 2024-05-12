@@ -20,6 +20,7 @@ import JobDetails from './Pages/JobDetails.jsx';
 import AppliedJob from './Pages/AppliedJob.jsx';
 import Userprofile from './Pages/Userprofile.jsx';
 import Blog from './Pages/Blog.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -110,7 +111,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <HelmetProvider>
+          <RouterProvider router={router} />
+        </HelmetProvider>
       </QueryClientProvider>
       <ToastContainer />
     </AuthProvider>

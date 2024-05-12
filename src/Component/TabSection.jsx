@@ -36,7 +36,7 @@ const TabSection = () => {
     <div className="max-w-7xl mx-auto mt-5 px-4 ">
       <Tabs>
         <div className=" container px-6 py-10 mx-auto">
-          <h1 className="text-2xl font-bold text-center text-gray-800 capitalize lg:text-4xl ">
+          <h1 className="text-2xl font-bold text-center text-gray-800 dark:text-white capitalize lg:text-4xl ">
             FInd Your Jobs <span className="text-[#00C2CB]">Categories</span>
           </h1>
 
