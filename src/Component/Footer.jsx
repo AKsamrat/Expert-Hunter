@@ -2,10 +2,10 @@ import logo from '../assets/logo1.jpg';
 
 const Footer = () => {
   return (
-    <div>
+    <div className="bg-gray-900 text-gray-200">
       <footer className="px-4 divide-y  dark:bg-gray-100 dark:text-gray-800">
         <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0 lg:pl-28">
-          <div className="lg:w-1/4">
+          <div className="lg:w-1/4 *:text-gray-200">
             <a
               rel="noopener noreferrer"
               href="#"
@@ -14,7 +14,7 @@ const Footer = () => {
               <img src={logo} alt="" />
             </a>
             <p>
-              <span className="text-xs uppercase tracking-wide text-gray-500">
+              <span className="text-xs uppercase tracking-wide text-gray-500 text-gray-200">
                 {' '}
                 Call us{' '}
               </span>

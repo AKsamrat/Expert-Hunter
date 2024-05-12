@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo1.jpg';
 import { AuthContext } from '../Provider/AuthProvider';
+import { MdLockOutline } from 'react-icons/md';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -17,7 +18,7 @@ const Navbar = () => {
             isPending
               ? 'pending'
               : isActive
-              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+              ? 'text-[#00C2CB] bg-[#34d5dd18] px-2 py-3 rounded-lg font-semibold'
               : 'hover:text-[#00C2CB]'
           }
         >
@@ -32,7 +33,7 @@ const Navbar = () => {
             isPending
               ? 'pending'
               : isActive
-              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+              ? 'text-[#00C2CB] bg-[#34d5dd18] px-2 py-3 rounded-lg font-semibold'
               : 'hover:text-[#00C2CB]'
           }
         >
@@ -48,7 +49,7 @@ const Navbar = () => {
               isPending
                 ? 'pending'
                 : isActive
-                ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+                ? 'text-[#00C2CB] bg-[#34d5dd18] px-2 py-3 rounded-lg font-semibold'
                 : 'hover:text-[#00C2CB]'
             }
           >
@@ -64,7 +65,7 @@ const Navbar = () => {
               isPending
                 ? 'pending'
                 : isActive
-                ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+                ? 'text-[#00C2CB] bg-[#34d5dd18] px-2 py-3 rounded-lg font-semibold'
                 : 'hover:text-[#00C2CB]'
             }
           >
@@ -80,7 +81,7 @@ const Navbar = () => {
               isPending
                 ? 'pending'
                 : isActive
-                ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+                ? 'text-[#00C2CB] bg-[#34d5dd18] px-2 py-3 rounded-lg font-semibold'
                 : 'hover:text-[#00C2CB]'
             }
           >
@@ -95,7 +96,7 @@ const Navbar = () => {
             isPending
               ? 'pending'
               : isActive
-              ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+              ? 'text-[#00C2CB] bg-[#34d5dd18] px-2 py-3 rounded-lg font-semibold'
               : 'hover:text-[#00C2CB]'
           }
         >
@@ -110,7 +111,7 @@ const Navbar = () => {
               isPending
                 ? 'pending'
                 : isActive
-                ? 'text-[#00C2CB] border-b-4 border-[#00C2CB]'
+                ? 'text-[#00C2CB]  bg-[#34d5dd18] px-2 py-3 rounded-lg font-semibold'
                 : 'hover:text-[#00C2CB]'
             }
           >
@@ -210,12 +211,13 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="  w-full md:w-auto   ">
-              <div className="flex justify-center items-center pl-2">
+              <div className="flex justify-center items-center pl-2 ">
                 <Link
                   to={'/login'}
                   onClick=""
-                  className="btn bg-[#00C2CB] text-white"
+                  className="btn bg-[#00C2CB] text-white flex justify-center items-center gap-2 text-xl"
                 >
+                  <MdLockOutline />
                   LogIn
                 </Link>
               </div>

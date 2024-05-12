@@ -132,9 +132,9 @@ const Bnner = () => {
       {/* <div className="carousel w-full h-[600px]  object-fill mt-7">
       </div> */}
       <form onSubmit={handleSearch}>
-        <div className=" p-1 overflow-hidden  z-10    focus-within:border-blue-400 absolute -translate-y-44 left-72">
+        <div className=" p-1 overflow-hidden  z-10    focus-within:border-blue-400 absolute -translate-y-44 left-72 hidden md:flex">
           <input
-            className="px-20 py-4 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent border-[#00C2CB] rounded-lg border-2"
+            className="px-2 w-72 py-4 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent border-[#00C2CB] rounded-l-lg border-2"
             type="text"
             onChange={e => setSearchText(e.target.value)}
             value={searchText}
@@ -145,7 +145,7 @@ const Bnner = () => {
 
           <button
             type="submit"
-            className="px-1 md:px-4 py-5 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-[#00C2CB] rounded-md hover:bg-gray-600 focus:bg-[#3facb2] focus:outline-none"
+            className="px-1 md:px-6 py-5 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-[#00C2CB] rounded-r-lg  hover:bg-gray-600 focus:bg-[#3facb2] focus:outline-none"
           >
             Search
           </button>

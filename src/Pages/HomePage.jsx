@@ -1,11 +1,14 @@
 import React from 'react';
 import Bnner from '../Component/Bnner';
+import TabSection from '../Component/TabSection';
+import HowItWork from '../Component/HowItWork';
 
 const HomePage = () => {
   return (
     <div>
       <Bnner></Bnner>
-      <p>home page</p>
+      <TabSection></TabSection>
+      <HowItWork></HowItWork>
     </div>
   );
 };
