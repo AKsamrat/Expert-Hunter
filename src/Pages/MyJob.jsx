@@ -114,6 +114,7 @@ const MyJob = () => {
                     <Link
                       className="flex justify-between items-center"
                       to={`/jobUpdate/${job?._id}`}
+                      state={job?.job_title}
                     >
                       <button
                         // data-aos="fade-right"
