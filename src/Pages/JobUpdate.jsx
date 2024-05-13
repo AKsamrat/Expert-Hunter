@@ -21,7 +21,7 @@ const JobUpdate = () => {
       return data;
     },
     onSuccess: () => {
-      toast.success('Job Added Successfully');
+      toast.success('Job Updated Successfully');
 
       queryClient.invalidateQueries({ queryKey: ['job'] });
     },
@@ -62,14 +62,15 @@ const JobUpdate = () => {
       category,
       min_salary,
       max_salary,
-      applicant_no,
+      applicant_no: 0,
       posting_date,
       description,
       owner_email,
     };
     console.table(updateData);
     await mutateAsync(updateData);
-    navigate('/myPostedJobs');
+    form.reset();
+    // navigate('/myPostedJobs');
   };
 
   return (

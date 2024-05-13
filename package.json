@@ -12,7 +12,9 @@
   "dependencies": {
     "@tanstack/react-query": "^5.35.1",
     "axios": "^1.6.8",
+    "clsx": "^2.1.1",
     "firebase": "^10.11.1",
+    "framer-motion": "^11.1.9",
     "html2canvas": "^1.4.1",
     "html2canvas-pro": "^1.4.3",
     "jspdf": "^2.5.1",
@@ -20,6 +22,7 @@
     "match-sorter": "^6.3.4",
     "pdf-viewer-reactjs": "^2.2.3",
     "react": "^18.2.0",
+    "react-awesome-reveal": "^4.2.10",
     "react-datepicker": "^6.9.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",
@@ -31,7 +34,8 @@
     "react-toastify": "^10.0.5",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.10.8",
-    "swiper": "^11.1.1"
+    "swiper": "^11.1.1",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

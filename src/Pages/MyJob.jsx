@@ -24,7 +24,7 @@ const MyJob = () => {
       console.log(data);
       return data;
     },
-    queryKey: ['jobs', user?.email],
+    queryKey: ['jobs', user],
   });
   console.log(jobs);
 
@@ -40,7 +40,7 @@ const MyJob = () => {
       if (data.deletedCount > 0) {
         Swal.fire({
           title: 'Deleted!',
-          text: 'Your Craft has been deleted.',
+          text: 'Your Jobs has been deleted.',
           icon: 'success',
         });
       }
@@ -68,6 +68,8 @@ const MyJob = () => {
       }
     });
   };
+
+  if (isLoading) return <p>Your data is loading.......</p>;
 
   return (
     <div className="max-w-7xl mx-auto my-16 ">

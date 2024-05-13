@@ -56,7 +56,8 @@ const AddJob = () => {
     };
     console.table(jobData);
     await mutateAsync(jobData);
-    navigate('/myPostedJobs');
+    // navigate('/myPostedJobs');
+    form.reset();
   };
 
   return (
