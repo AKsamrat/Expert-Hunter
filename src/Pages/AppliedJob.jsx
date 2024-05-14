@@ -57,7 +57,7 @@ const AppliedJob = () => {
   // };
 
   return (
-    <div className="max-w-7xl mx-auto mt-5 px-4">
+    <div className="max-w-7xl mx-auto mt-5 px-4 py-10">
       <h2 className="mb-4 text-3xl font-bold leading-tight text-center text-[#00C2CB] py-8">
         APPLIED JOBS
       </h2>
@@ -80,9 +80,7 @@ const AppliedJob = () => {
           <option value="Hybrid">Hybrid</option>
         </select>
       </div>
-      <button onClick={() => generatePDF(targetRef, { filename: 'page.pdf' })}>
-        Download PDF
-      </button>
+
       {/* <div ref={targetRef}>Content to be included in the PDF</div> */}
 
       <div
@@ -138,6 +136,14 @@ const AppliedJob = () => {
             </tbody>
           </table>
         </div>
+      </div>
+      <button onClick={() => generatePDF(targetRef, { filename: 'page.pdf' })}>
+        Download PDF
+      </button>
+      <div className={`${jobs.length === 0 ? 'flex' : 'hidden'}`}>
+        <p className="text-gray-300 font-bold text-4xl mt-20 text-center">
+          You have not Applied yet ....
+        </p>
       </div>
     </div>
   );

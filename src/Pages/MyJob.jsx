@@ -152,6 +152,11 @@ const MyJob = () => {
           </tbody>
         </table>
       </div>
+      <div className={`${jobs.length === 0 ? 'flex' : 'hidden'}`}>
+        <p className="text-gray-300 font-bold text-4xl mt-20 text-center">
+          You have not add data yet ....
+        </p>
+      </div>
     </div>
   );
 };
