@@ -13,6 +13,7 @@ import {
 
 import app from '../Firebase/Firebase.config';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -93,9 +94,11 @@ const AuthProvider = ({ children }) => {
           .then(res => {
             console.log(res.data);
           });
+
         setUser(null);
 
         setLoading(false);
+        toast.success('Logout Successfully');
       }
     });
 

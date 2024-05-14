@@ -27,7 +27,7 @@ const Footer = () => {
               </a>
             </p>
 
-            <ul className="mt-2 space-y-1 text-sm text-gray-700 font-sans">
+            <ul className="mt-2 space-y-1 text-sm text-gray-700 dark:text-black font-sans">
               <li>Monday to Friday: 10am - 5pm</li>
               <li>Weekend: 10am - 3pm</li>
             </ul>

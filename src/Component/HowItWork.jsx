@@ -82,7 +82,8 @@ const HowItWork = () => {
                 <p className="px-5 text-xs sm:text-base dark:text-gray-600">
                   You can choose the candidate of your choice from Expert
                   Hunter, we have 485 + CV. Where you will get your candidate.
-                  Goog employee can make a company top of the market.
+                  Goog employee can make a company top of the market and also
+                  internationally.
                 </p>
               </div>
             </div>

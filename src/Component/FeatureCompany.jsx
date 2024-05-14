@@ -9,8 +9,9 @@ const FeatureCompany = () => {
   return (
     <div className="max-w-7xl mx-auto mt-5 px-4 my-20">
       <div>
-        <h1 className="text-2xl font-bold text-center text-gray-800 capitalize lg:text-5xl ">
-          Featured Company opinion
+        <h1 className="text-2xl font-bold text-center dark:text-white text-gray-800 capitalize lg:text-5xl ">
+          Featured <span className="text-[#00C2CB]"> Company </span>
+          Quote
         </h1>
 
         <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 ">
@@ -22,9 +23,9 @@ const FeatureCompany = () => {
           initial={{ backgroundColor: 'white' }}
           whileHover={{ scale: 1.1, rotate: 5, backgroundColor: 'lightcyan' }}
         >
-          <div className="h-[450px]">
-            <div className="flex flex-col  mx-4 my-6 shadow-lg h-fit">
-              <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-50">
+          <div className="h-[450px] ">
+            <div className="flex flex-col  mx-4 my-6 shadow-lg h-full border border-[#00C2CB] rounded-t-lg">
+              <div className="px-4 py-10 rounded-t-lg sm:px-4 md:px-10 dark:bg-gray-50">
                 <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-800">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -68,9 +69,9 @@ const FeatureCompany = () => {
           initial={{ backgroundColor: 'white' }}
           whileHover={{ scale: 1.1, rotate: 5, backgroundColor: 'lightcyan' }}
         >
-          <div className="h-[450px]">
-            <div className="flex flex-col  mx-4 my-6 shadow-lg h-fit">
-              <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-50">
+          <div className="h-[450px] ">
+            <div className="flex flex-col  mx-4 my-6 shadow-lg h-fit border border-[#00C2CB] rounded-t-lg">
+              <div className="px-4 py-12 rounded-t-lg sm:px-4 md:px-10 dark:bg-gray-50">
                 <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-800">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -115,8 +116,8 @@ const FeatureCompany = () => {
           whileHover={{ scale: 1.1, rotate: 5, backgroundColor: 'lightcyan' }}
         >
           <div className="h-[450px] ">
-            <div className="flex flex-col  mx-4 my-6 shadow-lg h-fit">
-              <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-50">
+            <div className="flex flex-col  mx-4 my-6 shadow-lg h-full border border-[#00C2CB] rounded-t-lg">
+              <div className="px-4 py-10 rounded-t-lg sm:px-4 md:px-10 dark:bg-gray-50">
                 <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-800">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

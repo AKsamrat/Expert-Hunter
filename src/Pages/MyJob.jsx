@@ -22,6 +22,8 @@ const MyJob = () => {
     queryFn: async () => {
       const { data } = await axiosSecure(`/myJobs/${user?.email}`);
       console.log(data);
+
+      toast.success('My jobs data loading');
       return data;
     },
     queryKey: ['jobs', user],
@@ -40,7 +42,7 @@ const MyJob = () => {
       if (data.deletedCount > 0) {
         Swal.fire({
           title: 'Deleted!',
-          text: 'Your Jobs has been deleted.',
+          text: 'Your Craft has been deleted.',
           icon: 'success',
         });
       }

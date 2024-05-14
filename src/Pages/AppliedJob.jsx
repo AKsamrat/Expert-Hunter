@@ -2,16 +2,15 @@ import React, { useRef, useState } from 'react';
 import useAxiosSecure from '../Hook/useAxiosSecure';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import useAuth from '../Hook/useAuth';
-import { usePDF } from 'react-to-pdf';
-import generatePDF, { Resolution, Margin } from 'react-to-pdf';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+
+import generatePDF from 'react-to-pdf';
+import { toast } from 'react-toastify';
 
 //for pdf=========================
 
 const AppliedJob = () => {
   const targetRef = useRef();
-  const { toPDF } = usePDF({ filename: 'page.pdf' });
+
   const { user } = useAuth();
   const [filter, setFilter] = useState('');
   const axiosSecure = useAxiosSecure();
@@ -26,6 +25,7 @@ const AppliedJob = () => {
       const { data } = await axiosSecure(
         `/appliedJobs/${user?.email}?filter=${filter}`
       );
+      toast.success('Applied Jobs data loading');
       console.log(data);
       // refetch();
       return data;
@@ -80,7 +80,11 @@ const AppliedJob = () => {
           <option value="Hybrid">Hybrid</option>
         </select>
       </div>
-      {/* <button onClick={downloadPdf}>Download PDF</button> */}
+      <button onClick={() => generatePDF(targetRef, { filename: 'page.pdf' })}>
+        Download PDF
+      </button>
+      {/* <div ref={targetRef}>Content to be included in the PDF</div> */}
+
       <div
         ref={targetRef}
         className="container p-2 mx-auto sm:p-4 dark:text-gray-800"

@@ -5,12 +5,13 @@ import useAxiosSecure from '../Hook/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { FaAngleDoubleDown, FaAngleDoubleUp } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const TabSection = () => {
   const axiosSecure = useAxiosSecure();
 
   const [cardNumber, setCardNumber] = useState(6);
-  console.log(cardNumber);
+  // console.log(cardNumber);
   const handleShowLess = () => {
     setCardNumber(6);
   };
@@ -27,6 +28,7 @@ const TabSection = () => {
     queryFn: async () => {
       const { data } = await axiosSecure('/allJob');
       console.log(data);
+      toast.success('Tab section data loading');
       // refetch();
       return data;
     },
@@ -37,7 +39,7 @@ const TabSection = () => {
       <Tabs>
         <div className=" container px-6 py-10 mx-auto">
           <h1 className="text-2xl font-bold text-center text-gray-800 dark:text-white capitalize lg:text-4xl ">
-            FInd Your Jobs <span className="text-[#00C2CB]">Categories</span>
+            Find Your Jobs <span className="text-[#00C2CB]">Categories</span>
           </h1>
 
           <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 ">

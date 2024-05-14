@@ -67,10 +67,11 @@ const JobDetails = () => {
     const todayDate = Date.now();
     const deadline = new Date(jobs?.deadline).toLocaleDateString();
     const lastdate = Date.parse(deadline);
-    console.log(todayDate);
-    console.log(lastdate);
+    // console.log(todayDate);
+    // console.log(lastdate);
     if (lastdate < todayDate) return alert('deadline is over');
     await mutateAsync(applicantData);
+    refetch();
     form.reset();
   };
 
@@ -78,12 +79,12 @@ const JobDetails = () => {
   return (
     <div className="my-14 max-w-7xl mx-auto mt-5 px-4 ">
       {/* Job Details */}
-      <div className="flex-1  px-4 py-7 bg-white rounded-md shadow-md md:min-h-[350px]">
-        <div className="flex flex-col lg:flex-row justify-center gap-10">
-          <div className="rounded-2xl object-cover   h-[350px] ">
-            <img className="h-[60vh]" src={jobs?.image} alt="" />
+      <div className="flex-1  px-4 py-7 bg-white rounded-md shadow-md md:min-h-[450px]">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+          <div className="rounded-2xl object-cover  lg:col-span-2  ">
+            <img className="h-[60vh] w-full" src={jobs?.image} alt="" />
           </div>
-          <div>
+          <div className="lg:col-span-3">
             <div className="flex items-center justify-between">
               <span className="text-sm font-light text-gray-800 ">
                 Deadline: {new Date(jobs?.deadline).toLocaleDateString()}
@@ -204,7 +205,7 @@ const JobDetails = () => {
                     </div>
                   </div>
 
-                  <div className="flex justify-center mt-6">
+                  <div className="flex justify-center mt-6 modal-action">
                     <button
                       type="submit"
                       className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-[#00C2CB] rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"

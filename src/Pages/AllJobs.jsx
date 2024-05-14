@@ -21,6 +21,7 @@ const AllJobs = () => {
       const { data } = await axiosSecure(`/allJobs?search=${search}`);
       // console.log(data);
       // refetch();
+      toast.success('All Jobs data loading');
       return data;
     },
     queryKey: ['jobs', search],
@@ -40,7 +41,7 @@ const AllJobs = () => {
   return (
     <div className="overflow-x-auto max-w-7xl mx-auto my-16">
       <p className="text-3xl font-bold text-[#00C2CB] text-center pb-2">
-        ALL Jobs
+        ALL JOBS
       </p>
       <p className="text-center pb-8">
         Please Find your Prefarable and suitable job Here also try to apply{' '}
@@ -88,7 +89,7 @@ const AllJobs = () => {
               <td>{new Date(job?.posting_date).toLocaleDateString()}</td>
               <td>{new Date(job?.deadline).toLocaleDateString()}</td>
               <td>
-                {job?.min_salary}-{job?.max_salary}
+                $ {job?.min_salary}-{job?.max_salary}
               </td>
               <td>
                 <Link

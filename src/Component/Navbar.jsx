@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo1.jpg';
 import { AuthContext } from '../Provider/AuthProvider';
 import { MdLockOutline } from 'react-icons/md';
+import { toast } from 'react-toastify';
 
 const Navbar = ({ setDarkMode, darkMode }) => {
   const { user, logOut } = useContext(AuthContext);
