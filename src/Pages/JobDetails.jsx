@@ -11,7 +11,7 @@ const JobDetails = () => {
   const { user } = useAuth();
   const queryClient = useQueryClient();
 
-  const [startDate, setStartDate] = useState(new Date());
+  // const [startDate, setStartDate] = useState(new Date());
   const axiosSecure = useAxiosSecure();
 
   const { mutateAsync } = useMutation({
@@ -77,7 +77,7 @@ const JobDetails = () => {
 
   if (isError) return alert(error.message);
   return (
-    <div className="my-14 max-w-7xl mx-auto mt-5 px-4 ">
+    <div className="my-14 max-w-7xl mx-auto mt-5 px-4 py-20">
       {/* Job Details */}
       <div className="flex-1  px-4 py-7 bg-white rounded-md shadow-md md:min-h-[450px]">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
@@ -126,8 +126,9 @@ const JobDetails = () => {
         <div className="flex justify-center mt-6">
           <div>
             <button
+              disabled={user?.email === jobs?.owner_email}
               onClick={() => document.getElementById('my_modal_4').showModal()}
-              className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-[#00C2CB] rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+              className="px-8 py-2.5 disabled:cursor-not-allowed leading-5 text-white transition-colors duration-300 transform bg-[#00C2CB] rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
             >
               Apply
             </button>

@@ -254,6 +254,91 @@ const Blog = () => {
           </div>
         </div>
       </div>
+      <div className="relative flex flex-col max-w-6xl p-6 divide-y xl:flex-row xl:divide-y-0 xl:divide-x dark:bg-gray-50 dark:text-gray-800 dark:divide-gray-300">
+        <div className="p-3 space-y-1">
+          <h3 className="text-3xl font-semibold">About My website?</h3>
+          <p className="text-sm dark:text-gray-600">
+            <span className="font-bold text-lg">
+              My website name is expert hunter . Where i am trying to implement
+              a job related activity. In this site you can post job ,apply job
+              and also make your cv.You can choose the candidate of your choice
+              from Expert Hunter, we have 485 + CV. Where you will get your
+              candidate. Goog employee can make a company top of the market and
+              also internationally.
+            </span>
+            <br />
+            <br />
+            Key features of my website:
+            <br />
+            <br />
+            <ol className="pl-4">
+              <li className="pl-3 list-disc">
+                I use fire base authentication for user login and registration
+              </li>
+              <li className="pl-3 list-disc">
+                In banner section i implement search option where user can
+                search their prefarable jobs .
+              </li>
+              <li className="pl-3 list-disc">
+                In my site i use Dynamic card and dynamic title -
+              </li>
+              <li className="pl-3 list-disc">
+                I implement private routing that's why no one can see the
+                details of cards data and cant update craft without login.
+              </li>
+              <li className="pl-3 list-disc">
+                A beautiful slider made for user in the banner section which
+                will attract user and also implement animation in card .
+              </li>
+              <li className="pl-3 list-disc">
+                Applicant can search their favorite job and also can apply that
+                job
+              </li>
+              <li className="pl-3 list-disc">
+                I make the site by using Dynamic routing -
+              </li>
+              <li className="pl-3 list-disc">
+                I use framer motion in company quote section which is more
+                attractive
+              </li>
+            </ol>
+            <br />
+          </p>
+        </div>
+        <div className="flex items-center gap-3 p-3">
+          <img
+            alt=""
+            src="https://source.unsplash.com/100x100/?portrait"
+            className="object-cover w-12 h-12 dark:bg-gray-500 rounded-full shadow"
+          />
+          <div className="space-y-1">
+            <span className="text-xs">April 03, 2021</span>
+            <div className="flex flex-wrap gap-3">
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                className="inline-block px-2 py-1 text-sm font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50"
+              >
+                #javascript
+              </a>
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                className="inline-block px-2 py-1 text-sm font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50"
+              >
+                #react
+              </a>
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                className="inline-block px-2 py-1 text-sm font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50"
+              >
+                #Jwt
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

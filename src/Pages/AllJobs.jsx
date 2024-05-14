@@ -9,7 +9,9 @@ const AllJobs = () => {
   const [search, setSearch] = useState('');
   const [searchText, setSearchText] = useState('');
   const axiosSecure = useAxiosSecure();
-  const queryClient = useQueryClient();
+  const [itemperPage, setItemperPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [count, setCount] = useState(0);
 
   const {
     data: jobs = [],
@@ -18,13 +20,15 @@ const AllJobs = () => {
     error,
   } = useQuery({
     queryFn: async () => {
-      const { data } = await axiosSecure(`/allJobs?search=${search}`);
+      const { data } = await axiosSecure(
+        `/allJobs?page=${currentPage}&size=${itemperPage}&search=${search}`
+      );
       // console.log(data);
       // refetch();
       toast.success('All Jobs data loading');
       return data;
     },
-    queryKey: ['jobs', search],
+    queryKey: ['jobs', search, currentPage, itemperPage],
   });
   const handleSearch = e => {
     e.preventDefault();
@@ -38,6 +42,44 @@ const AllJobs = () => {
     setSearchText('');
   };
   // console.log(jobs);
+
+  //for pagination------
+
+  const numberOfpages = Math.ceil(count / itemperPage);
+  //   console.log(numberOfpages);
+  //   const pages = [];
+  const pages = [...Array(numberOfpages).keys()];
+
+  const handleItemsPerPage = e => {
+    console.log(e.target.value);
+    const val = parseInt(e.target.value);
+    setItemperPage(val);
+    setCurrentPage(0);
+  };
+
+  const { data: ejob = [] } = useQuery({
+    queryFn: async () => {
+      const { data } = await axiosSecure('/jobsCount');
+      console.log(data);
+      // refetch();
+      setCount(data.count);
+
+      return data;
+    },
+    queryKey: ['jobs', search],
+  });
+
+  const handlePreviouspage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  const handleNextpage = () => {
+    if (currentPage < pages.length - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   return (
     <div className="overflow-x-auto max-w-7xl mx-auto my-16">
       <p className="text-3xl font-bold text-[#00C2CB] text-center pb-2">
@@ -114,6 +156,47 @@ const AllJobs = () => {
           ))}
         </tbody>
       </table>
+
+      {/* pagination */}
+
+      <div className="pagination ">
+        <button onClick={handlePreviouspage}>Prev</button>
+        {pages.map(p => (
+          <button
+            key={p}
+            onClick={() => setCurrentPage(p)}
+            className={`hidden ${
+              currentPage === p ? 'bg-blue-500 text-white' : ''
+            } px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline hover:bg-blue-500  hover:text-white`}
+          >
+            {p}
+          </button>
+        ))}
+        {/* {pages?.map(page => (
+          <button
+            className="btn btn-primary mx-1"
+            onClick={() => setCurrentPage(page)}
+            key={page}
+          >
+            {page}
+          </button>
+        ))} */}
+        <button onClick={handleNextpage}>Next</button>
+        {/* {pages?.map(page => (
+          <button
+            className="btn btn-primary mx-1"
+            onClick={() => setCurrentPage(page)}
+            key={page}
+          >
+            {page}
+          </button>
+        ))} */}
+        <select value={itemperPage} onChange={handleItemsPerPage} name="" id="">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="30">30</option>
+        </select>
+      </div>
     </div>
   );
 };

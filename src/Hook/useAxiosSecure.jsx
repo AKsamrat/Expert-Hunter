@@ -13,15 +13,15 @@ const useAxiosSecure = () => {
     res => {
       console.log('response app e');
       return res;
-    },
-    async error => {
-      console.log('error from axios Interceptor', error.response.data);
-      if (error.response.status === 401 || error.response.status === 403) {
-        // await logOut();
-        // navigate('/login');
-      }
-      return Promise.reject(error);
     }
+    // async error => {
+    //   console.log('error from axios Interceptor', error.response.data);
+    //   if (error.response.status === 401 || error.response.status === 403) {
+    //     // await logOut();
+    //     // navigate('/login');
+    //   }
+    //   return Promise.reject(error);
+    // }
   );
 
   return axiosSecure;

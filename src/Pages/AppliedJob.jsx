@@ -14,7 +14,7 @@ const AppliedJob = () => {
   const { user } = useAuth();
   const [filter, setFilter] = useState('');
   const axiosSecure = useAxiosSecure();
-  const queryClient = useQueryClient();
+
   const {
     data: jobs = [],
     refetch,
