@@ -38,7 +38,7 @@ const AddJob = () => {
     const min_salary = form.min_salary.value;
     const max_salary = form.max_salary.value;
     const applicant_no = form.applicant.value;
-    const posting_date = startDate;
+    const posting_date = postingDate;
     const description = form.description.value;
 
     const jobData = {

@@ -112,7 +112,18 @@ const MyJob = () => {
                 <td>{job?.description}</td>
                 <td>{new Date(job?.posting_date).toLocaleDateString()} </td>
                 <th>{new Date(job?.deadline).toLocaleDateString()}</th>
-                <td>{job?.applicant_no}</td>
+                <td>
+                  {user?.email === job?.owner_email ? (
+                    <Link
+                      to={`/jobDetails/${job?._id}`}
+                      className=" bg-green-300 px-3 py-1 rounded-xl"
+                    >
+                      {job?.applicant_no}
+                    </Link>
+                  ) : (
+                    <p>{job?.applicant_no}</p>
+                  )}
+                </td>
                 <td>
                   <div className="flex justify-between items-center">
                     <Link

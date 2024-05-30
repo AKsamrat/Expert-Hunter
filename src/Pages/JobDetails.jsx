@@ -5,6 +5,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import useAxiosSecure from '../Hook/useAxiosSecure';
 import useAuth from '../Hook/useAuth';
 import { toast } from 'react-toastify';
+import AppliedUsers from '../Component/AppliedUsers';
 
 const JobDetails = () => {
   const { id } = useParams();
@@ -120,13 +121,16 @@ const JobDetails = () => {
             </div>
           </div>
         </div>
+        <div hidden={user?.email !== jobs?.owner_email}>
+          <AppliedUsers id={id}></AppliedUsers>
+        </div>
 
         {/* modal section  */}
 
         <div className="flex justify-center mt-6">
           <div>
             <button
-              disabled={user?.email === jobs?.owner_email}
+              hidden={user?.email === jobs?.owner_email}
               onClick={() => document.getElementById('my_modal_4').showModal()}
               className="px-8 py-2.5 disabled:cursor-not-allowed leading-5 text-white transition-colors duration-300 transform bg-[#00C2CB] rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
             >
@@ -170,7 +174,7 @@ const JobDetails = () => {
                     </div>
                     <div>
                       <label className="text-gray-700 " htmlFor="price">
-                        Aspected Salary
+                        Expected Salary
                       </label>
                       <input
                         id="price"

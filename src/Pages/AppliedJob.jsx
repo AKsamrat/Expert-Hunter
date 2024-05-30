@@ -14,6 +14,7 @@ const AppliedJob = () => {
   const { user } = useAuth();
   const [filter, setFilter] = useState('');
   const axiosSecure = useAxiosSecure();
+  console.log(user?.email);
 
   const {
     data: jobs = [],
